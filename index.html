@@ -779,7 +779,7 @@ footer.made-with-love{
   <div class="aurora"><span></span><span></span><span></span><span></span></div>
   <div class="particles" id="landingParticles"></div>
   <div class="landing-content">
-    <h1 class="glow-text">Happy Birthday,<br>Shand 🎂</h1>
+    <h1 class="glow-text">Happy Birthday,<br>Jey 🎂</h1>
     <p class="tagline">"i made this little world just for you."</p>
     <button class="glow-btn" id="openGiftBtn">🎁 Open Your Gift</button>
   </div>
@@ -805,7 +805,7 @@ footer.made-with-love{
   <!-- ============ HERO SECTION ============ -->
   <section id="hero">
     <div class="particles" id="heroParticles"></div>
-    <h2 class="section-title fade-in-up">For My Online Bestie 🎂</h2>
+    <h2 class="section-title fade-in-up">For My Online Friend 🎂</h2>
     <p class="section-sub fade-in-up">A whole little world, baked with love, sprinkled with memories.</p>
 
     <div class="cake-wrap fade-in-up">
@@ -1064,11 +1064,22 @@ for(let i=0;i<40;i++){
    MUSIC TOGGLE (placeholder only)
 ============================================================ */
 const musicToggle = document.getElementById('musicToggle');
+const audioPlayer = document.getElementById('audioPlayer'); // Pastikan elemen audio sudah ada di HTML
 let musicPlaying = false;
+
 musicToggle.addEventListener('click', ()=>{
   musicPlaying = !musicPlaying;
   musicToggle.classList.toggle('playing', musicPlaying);
-  musicToggle.textContent = musicPlaying ? '🎶' : '🎵';
+  
+  musicToggle.textContent = musicPlaying ? '🎶 Blue Lemonade - Citygodok' : '🎵 Putar Musik';
+
+  if (musicPlaying) {
+    audioPlayer.play().catch(error => {
+      console.log("Autoplay dicegah browser:", error);
+    });
+  } else {
+    audioPlayer.pause();
+  }
 });
 
 /* ============================================================
